@@ -1,0 +1,19 @@
+{
+  "name": "mern_social_media",
+  "version": "1.0.0",
+  "description": "Social Network",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samikmalhotra/MERN_Social_Media.git"
+  },
+  "author": "Samik Malhotra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Samikmalhotra/MERN_Social_Media/issues"
+  },
+  "homepage": "https://github.com/Samikmalhotra/MERN_Social_Media#readme"
+}
