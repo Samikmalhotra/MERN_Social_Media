@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { check, validationResult} = require('express-validator/check');
-const bcrypt = require('bcryptjs')
-const gravatar = require('gravatar')
+const { check, validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs');
+const gravatar = require('gravatar');
+const jwt = require('jsonwebtoken');
+
 const User = require('../../models/User')
 
 // @route   POST api/users
@@ -13,47 +15,50 @@ router.post('/',
         check('name', 'Name is required').not().isEmpty(),
         check('email',"Please include a valid email address").isEmail(),
         check('password',"Please enter a password of atleast 6 characters").isLength({min: 6})
-    ],async(req,res)=>{
-    const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array()});
-    }
-    const {name,email,password} = req.body;
+    ],
+    async(req,res)=>{
 
-    try{
-        let user = await User.findOne({email});
-
-        // See if user exists
-        if(user){
-           return res.status(400).json({errors: [{msg:"User already exists"}]});
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.status(400).json({errors: errors.array()});
         }
+        const {name,email,password} = req.body;
 
-        // Get users gravatar
-        const avatar = gravatar.url(email,{
-            s:'200',
-            r:'pg',
-            d:'mm'
-        })
+        try{
+            let user = await User.findOne({email});
 
-        user = new User({
-            name,
-            email,
-            avatar,
-            password
-        });
+            // See if user exists
+            if(user){
+               return res.status(400).json({errors: [{msg:"User already exists"}]});
+            }
 
-        // Encrypt password
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt)
-        await user.save();
-        // Return jsonwebtoken
-        res.send('User registered')
+            // Get users gravatar
+            const avatar = gravatar.url(email,{
+                s:'200',
+                r:'pg',
+                d:'mm'
+            })
 
-    }catch(e){
-        console.error(e.message);
-        res.status(500).send('Server Error!')
-    }
-});
+            user = new User({
+                name,
+                email,
+                avatar,
+                password
+            });
+
+            // Encrypt password
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash(password, salt)
+            await user.save();
+
+            // Return jsonwebtoken
+            res.send('User registered')
+
+        }catch(e){
+            console.error(e.message);
+            res.status(500).send('Server Error!')
+        }
+    });
 
 
 module.exports = router;
