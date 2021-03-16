@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult} = require('express-validator/check');
-const { rawListeners } = require('../../models/User');
-
+const bcrypt = require('bcryptjs')
 const User = require('../../models/User')
 
 // @route   POST api/users
@@ -40,9 +39,10 @@ router.post('/',
             email,
             avatar,
             password
-        })
+        });
         // Encrypt password
-
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt)
         // Return jsonwebtoken
 
         res.send('User route')
