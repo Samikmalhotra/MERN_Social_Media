@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult} = require('express-validator/check');
+const { rawListeners } = require('../../models/User');
 
 const User = require('../../models/User')
 
@@ -19,6 +20,12 @@ router.post('/',[
     const {name,email,password} = req.body;
 
     try{
+        let user = User.findOne({email});
+
+        if(user){
+            res.status(400).json({errors: [{msg:"User already exists"}]});
+        }
+
         // See if user exists
 
         // Get users gravatar
@@ -29,7 +36,8 @@ router.post('/',[
 
         res.send('User route')
     }catch(e){
-
+        console.error(e.message);
+        res.status(500).send('Server Error!')
     }
 });
 
