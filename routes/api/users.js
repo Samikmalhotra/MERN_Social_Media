@@ -21,7 +21,7 @@ router.post('/',
     const {name,email,password} = req.body;
 
     try{
-        let user = User.findOne({email});
+        let user = await User.findOne({email});
 
         // See if user exists
         if(user){
@@ -29,7 +29,11 @@ router.post('/',
         }
 
         // Get users gravatar
-
+        const avatar = gravatar.url(email,{
+            s:'200',
+            r:'pg',
+            d:'mm'
+        })
         // Encrypt password
 
         // Return jsonwebtoken
