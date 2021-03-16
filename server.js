@@ -10,6 +10,9 @@ app.get('/',(req,res)=>{
     res.send("API is running")
 })
 
+// Define routes
+app.use('/api/users',require('.routes/api/users'));
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, ()=>{
