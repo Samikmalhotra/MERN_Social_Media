@@ -27,10 +27,10 @@ router.post('/',[
 
         // Return jsonwebtoken
 
+        res.send('User route')
     }catch(e){
 
     }
-    res.send('User route')
 });
 
 
