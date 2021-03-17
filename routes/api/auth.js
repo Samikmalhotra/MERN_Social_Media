@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const {check, validationResult} = require('express-validator');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const bcrypt = require('bcryptjs');
+
 
 
 // @route   GET api/auth
@@ -25,9 +27,8 @@ router.get('/',auth, async(req,res)=>{
 // @access  Public
 router.post('/',
     [
-        check('name', 'Name is required').not().isEmpty(),
         check('email',"Please include a valid email address").isEmail(),
-        check('password',"Please enter a password of atleast 6 characters").isLength({min: 6})
+        check('password',"Password is required").exists()
     ],
     async(req,res)=>{
 
@@ -35,34 +36,15 @@ router.post('/',
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array()});
         }
-        const {name,email,password} = req.body;
+        const {email,password} = req.body;
 
         try{
             let user = await User.findOne({email});
 
             // See if user exists
-            if(user){
-               return res.status(400).json({errors: [{msg:"User already exists"}]});
+            if(!user){
+               return res.status(400).json({errors: [{msg:"Invalid Credentials"}]});
             }
-
-            // Get users avatar
-            const avatar = gravatar.url(email,{
-                s:'200',
-                r:'pg',
-                d:'mm'
-            })
-
-            user = new User({
-                name,
-                email,
-                avatar,
-                password
-            });
-
-            // Encrypt password
-            const salt = await bcrypt.genSalt(10);
-            user.password = await bcrypt.hash(password, salt)
-            await user.save();
 
             // Return jsonwebtoken
             const payload = {
