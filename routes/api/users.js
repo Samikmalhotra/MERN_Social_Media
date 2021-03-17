@@ -33,7 +33,7 @@ router.post('/',
                return res.status(400).json({errors: [{msg:"User already exists"}]});
             }
 
-            // Get users gravatar
+            // Get users avatar
             const avatar = gravatar.url(email,{
                 s:'200',
                 r:'pg',
@@ -58,8 +58,13 @@ router.post('/',
                     id: user.id,
                 }
             }
-            jwt.sign(payload, config.get('jwttoken'))
-            res.send('User registered')
+
+            jwt.sign(payload, config.get('jwtToken'),{expiresIn: 360000}, (err,token)=>{
+                if(err){
+                    throw err;
+                }
+                res.json({token});
+            });
 
         }catch(e){
             console.error(e.message);
