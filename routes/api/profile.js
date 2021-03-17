@@ -78,13 +78,18 @@ async(req,res)=>{
         if(profile){
             // Update
             profile = await Profile.findOneAndUpdate({user: req.user.id},{$set:profileFields},{new: true});
+
+            return res.json(profile);
         }
+        // Create
+        profile = new Profile(profileFields);
+        await profile.save();
+        
     }catch(e){
         console.error(e.message);
         res.status(500).send('Server Error!');
     }
-    console.log(profileFields.skills);
-    res.send('Hello');
+    
 })
 
 
