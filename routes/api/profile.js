@@ -115,9 +115,12 @@ router.get('/', async(req,res)=>{
 // @desc     Get profile by user ID
 // @access   Public
 
-router.get('/', async(req,res)=>{
+router.get('/user/:user_id', async(req,res)=>{
     try {
-        const profiles = await Profile.find().populate('user', ['name','avatar']);
+        const profile = await Profile.find({user: req.params.user_id}).populate('user', ['name','avatar']);
+
+        if(!profile) return res.status(400).json({msg:'Mo profile for this user'})
+
         res.json(profiles) 
     } catch (error) {
         console.error(error.message);
