@@ -5,6 +5,7 @@ const {check,validationResult} = require('express-validator')
 
 const Profile = require ('../../models/Profile');
 const User = require('../../models/User');
+const { reset } = require('nodemon');
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -24,6 +25,9 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
+// @route    POST api/profile
+// @desc     Create or update user profile
+// @access   Private
 router.post('/', [auth, [
     check('status', 'Status is required').not().isEmpty(),
     check('skills', 'Skills are required').not().isEmpty()
@@ -92,6 +96,34 @@ async(req,res)=>{
     
 })
 
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   Public
+
+router.get('/', async(req,res)=>{
+    try {
+        const profiles = await Profile.find().populate('user', ['name','avatar']);
+        res.json(profiles) 
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error!')
+    }
+})
+
+// @route    GET api/profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   Public
+
+router.get('/', async(req,res)=>{
+    try {
+        const profiles = await Profile.find().populate('user', ['name','avatar']);
+        res.json(profiles) 
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error!')
+    }
+})
 
 
 module.exports = router;
