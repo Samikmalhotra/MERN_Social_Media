@@ -185,7 +185,7 @@ async(req,res)=>{
 
         post.comments.unshift(newComment);
 
-        await newPost.save();
+        await post.save();
 
         res.json(post.comments);
     } catch (e) {
