@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 
 const Register = () => {
     const [formData, setFormData] = useState({
-        nsme:'',
+        name:'',
         email:'',
         password:'',
         password2:''
