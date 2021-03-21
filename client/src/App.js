@@ -12,7 +12,7 @@ import store from './store';
 
 const App = () => {
     return(
-      <Provider storre = {store}>
+      <Provider store = {store}>
         <Router>
           <Fragment>
             <Navbar />
