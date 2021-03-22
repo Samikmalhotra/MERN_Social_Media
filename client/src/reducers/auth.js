@@ -1,4 +1,3 @@
-import { defaults } from 'request';
 import {
     REGISTER_SUCCESS, 
     REGISTER_FAILURE
