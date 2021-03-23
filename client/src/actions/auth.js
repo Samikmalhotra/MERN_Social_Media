@@ -2,8 +2,15 @@ import axios from 'axios';
 import { setAlert } from './alert';
 import {
     REGISTER_SUCCESS,
-    REGISTER_FAILURE    
+    REGISTER_FAILURE,
+    USER_LOADED,
+    AUTH_ERROR    
 } from './types';
+
+// Load User
+export const loadUser = () => async dispatch => {
+    
+}
 
 
 // Register User    
