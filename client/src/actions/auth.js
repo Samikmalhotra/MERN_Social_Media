@@ -6,7 +6,8 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE    
+    LOGIN_FAILURE,    
+    LOGOUT
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -37,7 +38,7 @@ export const loadUser = () => async dispatch => {
 export const register = ({ name, email, password }) => async dispatch => {
     const config = {
         headers: {
-            'Content-type':'application/json',
+            'Content-Type':'application/json',
         }
     }
 
@@ -95,4 +96,9 @@ export const login = ( email, password ) => async dispatch => {
             type: LOGIN_FAILURE
         })
     }
+}
+
+// Logout User
+export const logout = () => async dispatch => {
+    dispatch({ type: LOGOUT})
 }
