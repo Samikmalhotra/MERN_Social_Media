@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setAlert} from './alert';
+// import {setAlert} from './alert';
 
 import{
     GET_PROFILE,
@@ -8,18 +8,21 @@ import{
 
 // Get current users profile
 
-export const getCurrentProfile = () => async (dispatch) => {
+export const getCurrentProfile = () => async dispatch => {
     try {
-      const res = await axios.get('/profile/me');
+      const res = await axios.get('/api/profile/me');
   
       dispatch({
         type: GET_PROFILE,
         payload: res.data
       });
-    } catch (err) {
+      console.log(res.data)
+
+      
+    } catch (e) {
       dispatch({
         type: PROFILE_ERROR,
-        payload: { msg: err.response.statusText, status: err.response.status }
+        payload: { msg: e.response.statusText, status: e.response.status }
       });
     }
   };

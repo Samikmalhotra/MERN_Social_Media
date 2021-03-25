@@ -8,16 +8,13 @@ const initialState = {
     error: {}
 }
 
-function profile(state=initialState,action){
+function profile(state = initialState, action){
     const {type,payload} = action;
 
     switch(type){
         case GET_PROFILE:
-            return {
-                ...state,
-                profile: payload,
-                loading: false
-            }
+            return {...state,profile:payload,loading:false}
+            
         case PROFILE_ERROR:
             return {
                 ...state,
