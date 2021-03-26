@@ -77,7 +77,7 @@ export const getProfileById = (userId) => async dispatch => {
 };
 
 
-// Get Github repois
+// Get Github repos
 export const getGithubRepos = (username ) => async dispatch => {
   dispatch({type:CLEAR_PROFILE});
 
@@ -238,7 +238,7 @@ export const getGithubRepos = (username ) => async dispatch => {
   export const deleteAccount = () => async dispatch => {
     if(window.confirm('Are you sure? This can NOT be undone')){
       try {
-        const res = await axios.delete('/api/profile');
+        await axios.delete('/api/profile');
         dispatch({type: CLEAR_PROFILE});
         dispatch({type: ACCOUNT_DELETED})
         dispatch(setAlert('Your account has been permanently removed'));
