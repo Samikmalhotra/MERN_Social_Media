@@ -2,7 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {createProfile, getCurrentProfile} from '../../actions/profile';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, withRouter, Redirect} from 'react-router-dom';
 
 const EditProfile = ({profile:{profile, loading },createProfile, getCurrentProfile, history}) => {
     const [formData, setFormData]=useState({
@@ -61,13 +61,15 @@ const EditProfile = ({profile:{profile, loading },createProfile, getCurrentProfi
 
     const onSubmit = e => {
       e.preventDefault();
-      createProfile(formData, history, true)
+      createProfile(formData, history, true);
+      return <Redirect to='/dashboard' />
+
     }
 
     return (
         <Fragment>
             <h1 className="large text-primary">
-        Create Your Profile
+        Edit Your Profile
       </h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
@@ -161,7 +163,7 @@ const EditProfile = ({profile:{profile, loading },createProfile, getCurrentProfi
         </Fragment>}
         
         <input type="submit" className="btn btn-primary my-1" />
-        <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+        <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
       </form>
         </Fragment>
     )
