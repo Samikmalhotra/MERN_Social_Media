@@ -61,9 +61,8 @@ const EditProfile = ({profile:{profile, loading },createProfile, getCurrentProfi
 
     const onSubmit = e => {
       e.preventDefault();
-      createProfile(formData, history, true);
+      createProfile(formData, history)
       return <Redirect to='/dashboard' />
-
     }
 
     return (
