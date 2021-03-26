@@ -71,7 +71,7 @@ export const getProfileById = (userId) => async dispatch => {
   } catch (e) {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: e.response.statusText, status: e.response.status }
+      payload: { msg: e.response, status: e.response.status }
     });
   }
 };
