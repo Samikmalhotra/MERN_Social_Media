@@ -27,8 +27,9 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
         <Fragment>
+        <div className="wrapper-login bg-white">
            <h1 className="large text-primary">Sign In</h1>
-      <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
+      <p className="lead text-light"><i className="fas fa-user"></i> Sign Into Your Account</p>
       <form className="form" action="create-profile.html" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => onChange(e)} required/>
@@ -46,9 +47,10 @@ const Login = ({ login, isAuthenticated }) => {
 
         <input type="submit" className="btn " value="Login" />
       </form>
-      <p className="my-1">
+      <p className="my-1 text-light">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
+      </div>
         </Fragment>
     )
 }

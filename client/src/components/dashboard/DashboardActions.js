@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 const DashboardActions = () => {
     return (
     <div class="dash-buttons">
-        <Link to="/edit-profile" class="btn "
-        ><i class="fas fa-user-circle text-primary"></i> Edit Profile</Link>
+        <Link to="/edit-profile" class="btn ">
+        <i class="fas fa-user-circle "></i> Edit Profile</Link>
         <Link to="/add-experience" class="btn ">
-        <i class="fab fa-black-tie text-primary"></i> Add Experience</Link>
+        <i class="fab fa-black-tie "></i> Add Experience</Link>
         <Link to="/add-education" class="btn ">
-        <i class="fas fa-graduation-cap text-primary"></i> Add Education</Link>
+        <i class="fas fa-graduation-cap "></i> Add Education</Link>
     </div>
     )
 }

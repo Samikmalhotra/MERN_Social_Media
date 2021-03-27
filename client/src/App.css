@@ -68,10 +68,11 @@ img {
 
 .text-primary {
 	color: #fff;
+	margin-bottom: 5%;
 }
 
 .text-dark {
-	color: var(--dark-color);
+	color: whitesmoke;
 }
 
 /* Padding */
@@ -134,7 +135,7 @@ img {
 	font-size: 1rem;
 	border: none;
 	cursor: pointer;
-	margin-right: 0.5rem;
+	margin-right: 1.5%;
 	transition: opacity 0.2s ease-in;
 	outline: none;
 }
@@ -574,4 +575,45 @@ button {
 	.post button {
 		padding: 0.3rem 0.4rem;
 	}
+}
+
+.wrapper-login {
+	margin: auto;
+	border: 1px solid;
+	width: 40%;
+	padding: 4%;
+	margin-top: 5%;
+	border-radius: 4%;
+	background-color: rgb(10, 16, 17);
+}
+.wrapper-dashboard {
+	margin: auto;
+	border: 1px solid;
+	width: 90%;
+	padding: 4%;
+	margin-top: 5%;
+	text-align: center;
+	border-radius: 4%;
+	background-color: rgb(10, 16, 17);
+}
+.text-light {
+	color: whitesmoke;
+}
+.text-primary {
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	padding: 2%;
+}
+.dash-buttons {
+	margin: auto;
+	margin-bottom: 10%;
+}
+.table {
+	margin: auto;
+	margin-bottom: 5%;
+}
+
+.profile-exp p,
+.profile-edu p {
+	color: whitesmoke;
 }

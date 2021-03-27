@@ -19,6 +19,7 @@ const Dashboard = ({
     }, [getCurrentProfile]);
   
     return loading && profile === null ? <Spinner/>:<Fragment>
+    <div className='wrapper-dashboard'>
         <h1 className="large text-primary">Dashboard</h1>
         <p className="lead">
             <i classname="fas fa-user">Welcome { user && user.name }</i>
@@ -38,6 +39,7 @@ const Dashboard = ({
             You have not yet setup a profile, please add some info <br/>
             <Link to = '/create-profile' className="btn btn-primary my-1" >Create Profile</Link>
          </Fragment> }
+         </div>
     </Fragment>
 }
 
