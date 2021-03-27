@@ -17,7 +17,7 @@ body {
 	font-family: "Raleway", sans-serif;
 	font-size: 1rem;
 	line-height: 1.6;
-	background-color: #1e1e2e;
+	background-color: rgb(0, 0, 23);
 	color: #fff;
 }
 
@@ -67,7 +67,7 @@ img {
 }
 
 .text-primary {
-	color: var(--primary-color);
+	color: #fff;
 }
 
 .text-dark {
@@ -128,8 +128,8 @@ img {
 
 .btn {
 	display: inline-block;
-	background: var(--light-color);
-	color: #333;
+	background-image: linear-gradient(rgb(227, 5, 198), rgb(154, 0, 229));
+	color: #fff;
 	padding: 0.4rem 1.3rem;
 	font-size: 1rem;
 	border: none;
@@ -160,7 +160,7 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
-	background: var(--primary-color);
+	background-image: linear-gradient(rgb(227, 5, 198), rgb(154, 0, 229));
 	color: #fff;
 }
 
@@ -168,8 +168,8 @@ img {
 .bg-light,
 .badge-light,
 .alert-light {
-	background: var(--light-color);
-	color: #333;
+	background-color: rgb(10, 16, 17);
+	color: #fff;
 }
 
 .btn-dark,
@@ -200,7 +200,7 @@ img {
 .bg-white,
 .badge-white,
 .alert-white {
-	background: #fff;
+	background-color: rgb(10, 16, 17);
 	color: #333;
 	border: #ccc solid 1px;
 }
@@ -295,7 +295,7 @@ button {
 }
 
 .table th {
-	background: var(--light-color);
+	background-image: linear-gradient(rgb(227, 5, 198), rgb(154, 0, 229));
 }
 
 /* Navbar */

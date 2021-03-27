@@ -23,7 +23,7 @@ const Dashboard = ({
         <p className="lead">
             <i classname="fas fa-user">Welcome { user && user.name }</i>
         </p>
-        {/* {profile !== null ? <Fragment>
+        {profile !== null ? <Fragment>
           <DashboardActions/>
           <Experience experience={profile.experience}/>
           <Education education={profile.education}/>
@@ -37,7 +37,7 @@ const Dashboard = ({
          <Fragment>
             You have not yet setup a profile, please add some info <br/>
             <Link to = '/create-profile' className="btn btn-primary my-1" >Create Profile</Link>
-         </Fragment> } */}
+         </Fragment> }
     </Fragment>
 }
 

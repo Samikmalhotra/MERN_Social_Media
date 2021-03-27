@@ -8,7 +8,7 @@ const Navbar = ({auth:{isAuthenticated, loading}, logout}) => {
 
   const authLinks = (
     <ul>
-    {/* <li>
+    <li>
         <a  href="/profiles">
           Students
         </a>
@@ -17,17 +17,17 @@ const Navbar = ({auth:{isAuthenticated, loading}, logout}) => {
         <a  href="/posts">
           Posts
         </a>
-      </li> */}
+      </li>
     <li>
         <a  href="/dashboard">
           <i className="fas fa-user" />{' '}
-          <span className="hide-sm">Dashboard</span>
+          <span className="hide-sm nav-link">Dashboard</span>
         </a>
       </li>
       <li>
         <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt" />{' '}
-          <span className="hide-sm">Logout</span>
+          <span className="hide-sm nav-link">Logout</span>
         </a>
       </li>
       
@@ -36,14 +36,14 @@ const Navbar = ({auth:{isAuthenticated, loading}, logout}) => {
 
   const guestLinks = (
     <ul>
-        {/* <li><Link to="/profiles">Students</Link></li> */}
+        <li><Link to="/profiles">Students</Link></li>
         <li><Link to="/register">Register</Link></li>
         <li><Link to="/login">Login</Link></li>
     </ul>
   );
 
   return (
-    <nav className="navbar bg-dark">
+    <nav className="navbar bg-dark ">
       <h1>
         <Link to="/">
           <i className="fas fa-cubes" /> Axios Cube

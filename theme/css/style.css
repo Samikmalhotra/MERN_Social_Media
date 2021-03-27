@@ -15,8 +15,8 @@
 
 body {
 	font-family: "Raleway", sans-serif;
-	font-size: 1rem;
-	line-height: 1.6;
+	font-size: 0.75rem;
+	line-height: 1.5;
 	background-color: #fff;
 	color: #333;
 }
@@ -40,7 +40,7 @@ img {
 	margin: auto;
 	overflow: hidden;
 	padding: 0 2rem;
-	margin-top: 6rem;
+	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
 
@@ -298,8 +298,28 @@ button {
 	background: var(--light-color);
 }
 
+/* New Navbar */
+.nav-link {
+	padding: 0.25rem 0;
+	font-size: 1rem;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.5);
+	margin-left: 1rem;
+	border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+	color: rgba(255, 255, 255, 0.5);
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link.active {
+	color: white;
+	border-bottom-color: white;
+}
+
 /* Navbar */
-.navbar {
+/* .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -310,30 +330,35 @@ button {
 	top: 0;
 	border-bottom: solid 1px var(--primary-color);
 	opacity: 0.9;
-}
-
-.navbar ul {
+  }
+  
+  .navbar ul {
 	display: flex;
-}
-
-.navbar a {
+  }
+  
+  .navbar a {
 	color: #fff;
 	padding: 0.45rem;
 	margin: 0 0.25rem;
-}
-
-.navbar a:hover {
+  }
+  
+  .navbar a:hover {
 	color: var(--primary-color);
-}
-
-.navbar .welcome span {
+  }
+  
+  .navbar .welcome span {
 	margin-right: 0.6rem;
+  } */
+
+.signinout-nav {
+	text-size-adjust: 50%;
+	font-size: 0.5rem;
 }
 
 /* Landing Page */
 .landing {
 	position: relative;
-	background: url("../img/bg.jpg") no-repeat center center/cover;
+	background: url("../img/showcase.jpg") no-repeat center center/cover;
 	height: 100vh;
 }
 
@@ -512,23 +537,23 @@ button {
 	}
 
 	/* Navbar */
-	.navbar {
-		display: block;
-		text-align: center;
+	/* .navbar {
+	  display: block;
+	  text-align: center;
 	}
-
+  
 	.navbar ul {
-		text-align: center;
-		justify-content: center;
+	  text-align: center;
+	  justify-content: center;
 	}
-
+  
 	.navbar h1 {
-		margin-bottom: 1rem;
+	  margin-bottom: 1rem;
 	}
-
+  
 	.navbar .welcome {
-		display: none;
-	}
+	  display: none;
+	} */
 
 	/* Profiles Page */
 	.profile {
@@ -574,4 +599,126 @@ button {
 	.post button {
 		padding: 0.3rem 0.4rem;
 	}
+}
+
+/* ChatBot */
+.chat-btn {
+	position: absolute;
+	right: 14px;
+	bottom: 30px;
+	cursor: pointer;
+}
+
+.chat-btn .close {
+	display: none;
+}
+
+.chat-btn i {
+	transition: all 0.9s ease;
+}
+
+#check:checked ~ .chat-btn i {
+	display: block;
+	pointer-events: auto;
+	transform: rotate(180deg);
+}
+
+#check:checked ~ .chat-btn .comment {
+	display: none;
+}
+
+.chat-btn i {
+	font-size: 22px;
+	color: #c352ea !important;
+}
+
+.chat-btn {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	background-color: #c352ea;
+	color: #c352ea;
+	font-size: 22px;
+	border: none;
+}
+
+.wrapper {
+	position: absolute;
+	right: 20px;
+	bottom: 100px;
+	width: 300px;
+	background-color: #c352ea;
+	border-radius: 5px;
+	opacity: 0;
+	transition: all 0.4s;
+}
+
+#check:checked ~ .wrapper {
+	opacity: 1;
+}
+
+.header {
+	padding: 13px;
+	background-color: #c352ea;
+	border-radius: 5px 5px 0px 0px;
+	margin-bottom: #c352ea;
+}
+
+.chat-form {
+	padding: 15px;
+}
+
+.chat-form input,
+textarea,
+button {
+	margin-bottom: 10px;
+}
+
+.chat-form textarea {
+	resize: none;
+}
+
+.form-control:focus,
+.btn:focus {
+	box-shadow: none;
+}
+
+.btn,
+.btn:focus,
+.btn:hover {
+	background-color: #c352ea;
+	border: #c352ea;
+}
+
+#check {
+	display: none !important;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: rgba(21, 2, 53, 0.746);
+}
+
+#iframe-container {
+	text-align: center;
+	width: 100%;
+}
+#chatbox {
+	margin-top: 60px;
+	display: block;
+	border-style: none;
+}
+
+.main-container {
+	height: 100vh;
+	min-height: 650px;
+	background-position: center left;
+	background-size: 1920px;
+	background-repeat: repeat-x;
+	position: relative;
+	overflow-x: hidden;
 }
