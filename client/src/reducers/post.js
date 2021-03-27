@@ -1,6 +1,7 @@
 import {
     DELETE_POSTS,
     GET_POSTS,
+    GET_POST,
     POSTS_ERROR,
     UPDATE_LIKES,
     ADD_POST
@@ -20,6 +21,12 @@ function post(state = initialState, action){
             return{
                 ...state,
                 posts: payload,
+                loading: false
+            }
+        case GET_POST:
+            return{
+                ...state,
+                post: payload,
                 loading: false
             }
         case POSTS_ERROR:
