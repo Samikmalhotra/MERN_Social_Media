@@ -166,8 +166,8 @@ export const getGithubRepos = (username ) => async dispatch => {
         }
       }
 
-      const res = await axios.put('/api/profile/',formData, config);
-
+      const res = await axios.put('/api/profile/education',formData, config);
+      
       dispatch({
         type: UPDATE_PROFILE,
         payload: res.data
