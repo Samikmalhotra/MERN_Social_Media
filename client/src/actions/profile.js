@@ -4,6 +4,7 @@ import {setAlert} from './alert';
 import{
   CLEAR_PROFILE,
     GET_PROFILE,
+    GET_PROFILE_1,
     GET_PROFILES,
     PROFILE_ERROR,
     UPDATE_PROFILE,
@@ -60,7 +61,7 @@ export const getProfileById = (userId) => async (dispatch) => {
     const res = await axios.get('/api/profile/user/'+userId);
     console.log(res.data)
     dispatch({
-      type: GET_PROFILE,
+      type: GET_PROFILE_1,
       payload: res.data
     });
   } catch (err) {

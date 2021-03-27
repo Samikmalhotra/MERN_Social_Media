@@ -1,4 +1,4 @@
-import { GET_PROFILE,GET_PROFILES, GET_REPOS, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from "../actions/types";
+import { GET_PROFILE, GET_PROFILE_1, GET_PROFILES, GET_REPOS, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from "../actions/types";
 
 const initialState = {
     profile: null,
@@ -12,10 +12,15 @@ function profile(state = initialState, action){
     const {type,payload} = action;
 
     switch(type){
-        case GET_PROFILE:
+        case GET_PROFILE_1:
             return {
                 ...state,
                 profile: payload[0],
+            }
+        case GET_PROFILE:
+            return {
+                ...state,
+                profile: payload,
             }
         case UPDATE_PROFILE:              
             return {...state,profile:payload,loading:false}
