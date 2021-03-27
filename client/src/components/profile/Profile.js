@@ -6,7 +6,8 @@ import Spinner from '../layout/spinner'
 import ProfileTop from './ProfileTop';
 import { getProfileById } from '../../actions/profile'
 import ProfileAbout from './ProfileAbout'
-import ProfileExperience from './ProfileExperience'
+import ProfileExperience from './ProfileExperience.js'
+import ProfileEducation from './ProfileEducation'
 
 const Profile = ({getProfileById,profile:{loading, profile}, auth, match}) => {
     useEffect(()=>{
@@ -34,6 +35,14 @@ const Profile = ({getProfileById,profile:{loading, profile}, auth, match}) => {
                             <ProfileExperience key={experience._id} experience={experience}/>
                         ))}
                     </Fragment>) : (<h4>No Experience Credentials...</h4>)}
+                </div>
+                <div className="profile-edu bg-white p-2">
+                    <h2 className="text-primary">Education</h2>
+                    {profile.education.length > 0 ? (<Fragment>
+                        {profile.education.map(education=>(
+                            <ProfileEducation key={education._id} education={education}/>
+                        ))}
+                    </Fragment>) : (<h4>No Education Credentials...</h4>)}
                 </div>
             </div>
 
