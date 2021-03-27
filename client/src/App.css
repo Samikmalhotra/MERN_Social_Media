@@ -591,7 +591,7 @@ button {
 	border: 1px solid;
 	width: 90%;
 	padding: 4%;
-	margin-top: 5%;
+	margin-top: 2%;
 	text-align: center;
 	border-radius: 4%;
 	background-color: rgb(10, 16, 17);
@@ -616,4 +616,30 @@ button {
 .profile-exp p,
 .profile-edu p {
 	color: whitesmoke;
+}
+.btn-landing {
+	display: inline-block;
+	background-image: linear-gradient(rgb(227, 5, 198), rgb(154, 0, 229));
+	color: #fff;
+	padding: 0.4rem 1.3rem;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in;
+	outline: none;
+	margin: 20px;
+	min-width: 120px;
+}
+.btn-landing-light {
+	display: inline-block;
+	background-color: whitesmoke;
+	color: rgb(0, 0, 23);
+	padding: 0.4rem 1.3rem;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in;
+	outline: none;
+	margin: 20px;
+	min-width: 120px;
 }
