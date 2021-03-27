@@ -5,6 +5,8 @@ import {connect} from 'react-redux'
 import Spinner from '../layout/spinner'
 import ProfileTop from './ProfileTop';
 import { getProfileById } from '../../actions/profile'
+import ProfileAbout from './ProfileAbout'
+import ProfileExperience from './ProfileExperience'
 
 const Profile = ({getProfileById,profile:{loading, profile}, auth, match}) => {
     useEffect(()=>{
@@ -24,6 +26,15 @@ const Profile = ({getProfileById,profile:{loading, profile}, auth, match}) => {
             )}   
             <div class="profile-grid my-1">
                 <ProfileTop profile={profile}/>
+                <ProfileAbout profile={profile}/>
+                <div className="profile-exp bg-white p-2">
+                    <h2 className="text-primary">Experience</h2>
+                    {profile.experience.length > 0 ? (<Fragment>
+                        {profile.experience.map(experience=>(
+                            <ProfileExperience key={experience._id} experience={experience}/>
+                        ))}
+                    </Fragment>) : (<h4>No Experience Credentials...</h4>)}
+                </div>
             </div>
 
             </Fragment>}

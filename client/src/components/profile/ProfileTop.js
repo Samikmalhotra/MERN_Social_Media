@@ -8,7 +8,7 @@ const ProfileTop = ({profile: {profile}
   return (
     <div className="profile-top bg-primary p-2">
       <img className="round-img my-1" src={profile.user.avatar} alt="" />
-      <h1 className="large"> hello {profile.user.name}</h1>
+      <h1 className="large">  {profile.user.name}</h1>
       <p className="lead">
         {profile.status} {profile.company ? <span> at {profile.company}</span> : null}
       </p>
