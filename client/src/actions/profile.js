@@ -55,24 +55,19 @@ export const getProfiles = () => async dispatch => {
 };
 
 // Get profile by id
-export const getProfileById = (userId) => async dispatch => {
-  dispatch({type:CLEAR_PROFILE});
-
+export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/user/'+userId);
-
+    console.log(res.data)
     dispatch({
       type: GET_PROFILE,
       payload: res.data
     });
-    console.log(res.data)
-
-    
-  } catch (e) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: e.response, status: e.response.status }
-    });
+  } catch (err) {
+    // dispatch({
+    //   type: PROFILE_ERROR,
+    //   payload: { msg: err.response.statusText, status: err.response.status }
+    // });
   }
 };
 

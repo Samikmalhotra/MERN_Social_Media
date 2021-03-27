@@ -1,33 +1,26 @@
-  
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-const ProfileTop = ({
-  profile: {
-    status,
-    company,
-    location,
-    website,
-    social,
-    user: { name, avatar }
-  }
+
+const ProfileTop = ({profile: {profile}
 }) => {
   return (
     <div className="profile-top bg-primary p-2">
-      <img className="round-img my-1" src={avatar} alt="" />
-      <h1 className="large">{name}</h1>
+      <img className="round-img my-1" src={profile.user.avatar} alt="" />
+      <h1 className="large"> hello {profile.user.name}</h1>
       <p className="lead">
-        {status} {company ? <span> at {company}</span> : null}
+        {profile.status} {profile.company ? <span> at {profile.company}</span> : null}
       </p>
-      <p>{location ? <span>{location}</span> : null}</p>
+      <p>{profile.location ? <span>{profile.location}</span> : null}</p>
       <div className="icons my-1">
-        {website ? (
-          <a href={website} target="_blank" rel="noopener noreferrer">
+        {profile.website ? (
+          <a href={profile.website} target="_blank" rel="noopener noreferrer">
             <i className="fas fa-globe fa-2x" />
           </a>
         ) : null}
-        {social
-          ? Object.entries(social)
+        {profile.social
+          ? Object.entries(profile.social)
               .filter(([_, value]) => value)
               .map(([key, value]) => (
                 <a
@@ -49,4 +42,8 @@ ProfileTop.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-export default ProfileTop;
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps)(ProfileTop);
